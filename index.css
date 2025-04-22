@@ -220,87 +220,190 @@ p {
     }
 }
 
-/* Media Queries for smaller screens */
+/* Loyihalar blokining kichik ekranlar uchun moslashuvi */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 8vw;
-    }
-
-    h2 {
-        font-size: 6vw;
-    }
-
-    p {
-        font-size: 4vw;
-    }
-
-    .project-card {
+    .projects {
         flex-direction: column;
-        padding: 4vh 4%;
-        gap: 10%;
-    }
-
-    .profile-logo {
-        width: 30vw;
-        height: 30vw;
-    }
-
-    .location-button {
-        font-size: 5vw;
-        padding: 2vh 4vw;
-    }
-
-    .typing-block {
-        font-size: 6vw;
-    }
-
-    .icon {
-        width: 5vw;
-        height: 5vw;
-    }
-
-    .social-icons a {
-        font-size: 8vw;
+        align-items: center;
     }
 }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 10vw;
-    }
+/* Project card */
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #66ccff33;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 700px;
+    box-shadow: 0 0 15px rgba(102, 204, 255, 0.2);
+}
 
-    h2 {
-        font-size: 8vw;
-    }
-
-    p {
-        font-size: 5vw;
-    }
-
+/* Kichik ekranlar uchun card o'lchamini o'zgartirish */
+@media (max-width: 768px) {
     .project-card {
-        padding: 6vh 5%;
+        max-width: 100%;
+        padding: 20px;
+        gap: 15px;
     }
+}
 
+/* Hover effekti */
+.project-card:hover {
+    transform: scale(1.03);
+    border-color: #66ccff;
+}
+
+/* Profile logo */
+.profile-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 4px solid #66ccff;
+    background-color: white;
+}
+
+/* Logo o'lchami kichik ekranlar uchun moslashadi */
+@media (max-width: 768px) {
     .profile-logo {
-        width: 40vw;
-        height: 40vw;
+        width: 120px;
+        height: 120px;
     }
+}
 
+/* Profil ma'lumotlari */
+.profile-details h2,
+.profile-details h3,
+.profile-details p {
+    margin: 6px 0;
+}
+
+/* Location button */
+.location-button {
+    background-color: transparent;
+    border: 2px solid #7a7a7a;
+    border-radius: 25px;
+    margin-left: 50px;
+    color: #8a8aff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+/* Kichik ekranlar uchun location button */
+@media (max-width: 768px) {
     .location-button {
-        font-size: 6vw;
-        padding: 3vh 5vw;
+        margin-left: 0;
+        margin-top: 15px;
     }
+}
 
-    .typing-block {
-        font-size: 8vw;
-    }
+/* Typing block */
+.typing-block {
+    margin-top: 50px;
+    font-size: 24px;
+    color: #66ccff;
+    white-space: pre-wrap;
+    padding-right: 5px;
+}
 
-    .icon {
-        width: 7vw;
-        height: 7vw;
-    }
+/* Icon */
+.icon {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
 
+/* Social icons */
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    font-size: 45px;
+    color: #66ccff;
+    transition: 0.3s;
+    border: 2px black;
+    border-radius: 20px;
+}
+
+/* Kichik ekranlar uchun social icon hajmini kamaytirish */
+@media (max-width: 768px) {
     .social-icons a {
-        font-size: 10vw;
+        font-size: 35px;
+    }
+}
+
+/* Hover effekti */
+.social-icons a:hover {
+    color: #ffffff;
+}
+
+/* Custom cursor */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(102, 204, 255, 0.6);
+    border: 2px solid #66ccff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+/* Kichik ekranlar uchun kursor hajmi */
+@media (max-width: 768px) {
+    .cursor {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.cursor.hover {
+    transform: scale(2.5);
+    background-color: #ffffff55;
+}
+
+.trail {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #66ccff;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.5;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 0.3s ease-out forwards;
+    z-index: 9998;
+}
+
+/* Kichik ekranlar uchun trail o'lchami */
+@media (max-width: 768px) {
+    .trail {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
     }
 }
