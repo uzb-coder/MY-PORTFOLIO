@@ -33,36 +33,61 @@
     </div>
     
     <div class="typing-block" id="typing"></div>
+  </div>
 
   <script>
-   const text = "Hi, I am Valijonov Murodjon - a mobile and web-full stack and desktop developer.";
-const typingElement = document.getElementById("typing");
-
-let index = 0;
-let isDeleting = false;
-
-function typeText() {
-  if (!isDeleting) {
-    typingElement.textContent = text.slice(0, index++) + "|";
-    if (index > text.length) {
-      isDeleting = true;
-      setTimeout(typeText, 1500);
-      return;
+    const text = "Hi, I am Valijonov Murodjon - a mobile and web-full stack and desktop developer.";
+    const typingElement = document.getElementById("typing");
+    
+    let index = 0;
+    let isDeleting = false;
+    let formattedText = "";
+    
+    function typeText() {
+      if (!isDeleting) {
+        formattedText = text.slice(0, index++);
+        
+        // Har 50 belgi yozilganda yangi qatordan yozishni boshlaydi
+        let displayText = "";
+        for (let i = 0; i < formattedText.length; i++) {
+          if (i > 0 && i % 38 === 0) {
+            displayText += "\n";
+          }
+          displayText += formattedText[i];
+        }
+    
+        typingElement.textContent = displayText + "|";
+    
+        if (index > text.length) {
+          isDeleting = true;
+          setTimeout(typeText, 1500);
+          return;
+        }
+      } else {
+        index--;
+        formattedText = text.slice(0, index);
+    
+        let displayText = "";
+        for (let i = 0; i < formattedText.length; i++) {
+          if (i > 0 && i % 38 === 0) {
+            displayText += "\n";
+          }
+          displayText += formattedText[i];
+        }
+    
+        typingElement.textContent = displayText + " |";
+    
+        if (index === 0) {
+          isDeleting = false;
+          setTimeout(typeText, 1000);
+          return;
+        }
+      }
+      setTimeout(typeText, isDeleting ? 40 : 100);
     }
-  } else {
-    typingElement.textContent = text.slice(0, --index) + " |";
-    if (index === 0) {
-      isDeleting = false;
-      setTimeout(typeText, 1000);
-      return;
-    }
-  }
-  setTimeout(typeText, isDeleting ? 40 : 100);
-}
-
-typeText();
-
-  </script>
+    
+    typeText();
+    </script>
   
 
     <!-- Ijtimoiy tarmoqlar -->

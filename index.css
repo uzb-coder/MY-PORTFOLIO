@@ -106,7 +106,7 @@ p {
     margin-top: 50px;
     font-size: 24px;
     color: #66ccff;
-    white-space: pre;
+    white-space: pre-wrap; /* Bu kerak yangi qatorni ko‘rsatish uchun */
     padding-right: 5px;
   }
 
@@ -117,7 +117,7 @@ p {
   }
 
 .social-icons {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .social-icons a {
@@ -131,7 +131,6 @@ p {
 
 .social-icons a:hover {
     color: #ffffff;
-    border-style: dashed solid;
 }
 
 /* Custom cursor (dumaloq shakl) */
